@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Link Trading</title>
+    <!-- Font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind cdn -->
+    <script src="/assets/css/tailwind.css"></script>
+    <!-- flowbite css  -->
+    <link href="/assets/css/flowbite.css" rel="stylesheet" />
+    <!-- jquery  -->
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      /* Add your custom styles here */
+      #tabs a:hover,
+      #tabs a.active-tab {
+        /* background-color: rgba(255, 162, 0, 0.215); */
+        border-bottom: 1.5px solid #ffbe50;
+        color: #ffbe50;
+      }
+
+      /* for counter */
+      /* .align {
+        -webkit-display: flex;
+        -moz-display: flex;
+        -ms-display: flex;
+        -o-display: flex;
+        display: flex;
+        -webkit-flex-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        height: 200px;
+      }
+      .stat-wrap {
+        background: #fff;
+        -webkit-display: flex;
+        -moz-display: flex;
+        -ms-display: flex;
+        -o-display: flex;
+        display: flex;
+        justify-content: space-between;
+        padding: 50px;
+        width: 100%;
+        div {
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+      .stat-number {
+        display: block;
+        font-size: 35px;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+      } */
+    </style>
+  </head>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pcolor: "#FFBE50",
+            scolor: "#E66526",
+            cblack: "#212529",
+            cwhite: "#ffffff",
+            cgray: "#666666",
+          },
+          fontFamily: {
+            raleway: ["Raleway", "sans-serif"],
+            poppins: ["Poppins", "sans-serif"],
+          },
+          backgroundImage: {
+            "hero-back-img": "url('/assets/page-02.png')",
+          },
+        },
+      },
+    };
+  </script>
+
+  <body class="font-raleway">
+    <!-- Navbar start  -->
+
+    <nav class="bg-white border-gray-200 border border-gray-300 lg:px-16">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="/assets/link-logo.png" class="h-8" alt="Logo" />
+        </a>
+        <button
+          data-collapse-toggle="navbar-dropdown"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          aria-controls="navbar-dropdown"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+          <ul
+            class="flex flex-col lg:items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white font-medium"
+          >
+            <li>
+              <a
+                href="/"
+                class="block py-2 px-3 text-white bg-pcolor rounded md:bg-transparent md:text-scolor md:p-0"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <button
+                id="dropdownNavbarLink"
+                data-dropdown-toggle="dropdownNavbar"
+                class="flex items-center w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-scolor md:p-0 md:w-auto"
+              >
+                Features
+                <svg
+                  class="w-2.5 h-2.5 ms-2.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="dropdownNavbar"
+                class="z-30 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-52"
+              >
+                <ul
+                  class="py-2 text-sm text-gray-700"
+                  aria-labelledby="dropdownLargeButton"
+                >
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 hover:text-scolor"
+                      >Quality Metrics</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 hover:text-scolor"
+                      >Backlink Type</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 hover:text-scolor"
+                      >Daily Payment</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 hover:text-scolor"
+                      >Large Base</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 hover:text-scolor"
+                      >High-speed placement</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 hover:text-scolor"
+                      >Link building Dashboard</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="block px-4 py-2 hover:bg-gray-100 hover:text-scolor"
+                      >Guarantees & safety</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a
+                href="/faq/"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-scolor md:p-0"
+                >FAQs
+              </a>
+            </li>
+            <li>
+              <a
+                href="/affiliate-program/"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-scolor md:p-0"
+                >Affiliate Program
+              </a>
+            </li>
+
+            <li>
+              <a href="/register/">
+                <button
+                  type="button"
+                  class="my-2 lg:my-0 focus:outline-none text-cblack w-full border-2 border-pcolor hover:border-scolor hover:text-white bg-pcolor hover:bg-scolor focus:ring-4 focus:ring-yellow-300 font-medium rounded-0 text-sm px-5 py-2.5 me-2"
+                >
+                  Register
+                </button></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Navbar end  -->
+
+    <!-- HomePage section 1 start  -->
+    <section
+      class="bg-cwhite pt-4 md:pt-10 px-4 md:px-16 min-h-80 bg-no-repeat md:bg-contain bg-center bg-cover relative"
+      style="background-image: url('/assets/page-02.png')"
+    >
+      <div class="absolute inset-0 bg-white bg-opacity-90"></div>
+      <div class="text-center relative z-10 mx-auto w-full max-w-screen-xl">
+        <div class="mx-auto w-full max-w-screen-xl md:px-36">
+          <h1
+            class="md:text-4xl text-3xl text-center font-semibold text-cblack"
+          >
+            One of the best Linkbuilding platforms across the digital sphere,
+          </h1>
+          <h4 class="mt-3 md:text-2xl text-center font-semibold text-cblack">
+            Speedup your SEO results and be ahead of your challengers
+          </h4>
+        </div>
+        <div
+          class="flex justify-center items-center rounded-xl mt-5 md:mt-8 px-2"
+        >
+          <div class="bg-white rounded-3xl font-raleway flex w-96">
+            <input
+              type="text"
+              class="border border-gray-300 p-3 focus:border-pcolor focus:ring-0 w-full md:w-40 lg:w-full rounded-l-3xl"
+              id=""
+              placeholder="Your Website"
+            />
+            <button
+              class="p-3 text-white bg-pcolor text-sm md:text-lg rounded-r-3xl hover:bg-scolor transition duration-300"
+              type="submit"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ======= -->
+    <section
+      class="mx-auto w-full max-w-screen-xl px-4 md:px-16 relative hidden md:block"
+    >
+      <div class="flex justify-between gap-52 items-center -mt-40">
+        <img src="/assets/raket2.png" class="w-56" alt="" />
+        <img src="/assets/Loud.png" class="w-56" alt="" />
+      </div>
+    </section>
+    <!-- ===== -->
+    <!-- ======= -->
+    <section class="mx-auto w-full max-w-screen-xl px-4 md:px-16">
+      <!-- Card content -->
+      <div class="mb-10 mt-2">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div
+            class="border p-4 shadow-pcolor hover:shadow shadow-lg rounded-xl"
+          >
+            <div class="flex justify-center items-center">
+              <img src="/assets/Group 151.png" class="w-14" alt="Card Image" />
+            </div>
+            <div class="mt-2">
+              <h5 class="text-center text-2xl font-semibold">Speed Up</h5>
+              <p class="text-center font-medium">
+                Don’t spend much time on link building, Link Trading Exchange
+                will do all the dedicated work.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="border p-4 shadow-pcolor hover:shadow shadow-lg rounded-xl"
+          >
+            <div class="flex justify-center items-center">
+              <img src="/assets/Group 152.png" class="w-14" alt="Card Image" />
+            </div>
+            <div class="mt-2">
+              <h5 class="text-center text-2xl font-semibold">
+                Tough Technology
+              </h5>
+              <p class="text-center font-medium">
+                Link Trading Exchange is mechanised with all procedures and
+                definite machine learning to produce organic link profiles.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="border p-4 shadow-pcolor hover:shadow shadow-lg rounded-xl"
+          >
+            <div class="flex justify-center items-center">
+              <img src="/assets/Group 153.png" class="w-12" alt="Card Image" />
+            </div>
+            <div class="mt-2">
+              <h5 class="text-center text-2xl font-semibold">
+                Rock Effectiveness
+              </h5>
+              <p class="text-center font-medium">
+                Our 83,259 Keywords soaring at the top of Google. We enhance
+                your SEO by 35%.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--  Section 2 Start-->
+    <section class="pt-12 px-4 lg:px-16 bg-white">
+      <div class="mx-auto w-full max-w-screen-xl">
+        <div class="md:px-36">
+          <h1
+            class="md:text-4xl text-3xl text-center font-semibold text-cblack mb-6 md:mb-8"
+          >
+            Our Trusted Publication
+          </h1>
+        </div>
+        <div class="lg:px-40 md:px-28 px-0 mt-8">
+          <marquee  behavior="alternate" direction="left" scrollamount="5">
+            <button type="button" class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-pcolor hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100">Alternative</button>
+            <button type="button" class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-pcolor hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100">Alternative</button>
+            <button type="button" class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-pcolor hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100">Alternative</button>
+            <button type="button" class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-pcolor hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100">Alternative</button>
+            <button type="button" class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-pcolor hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100">Alternative</button>
+          </marquee>
+        </div>
+      </div>
+    </section>
+    <!-- ads section -->
+    <section class="mx-auto lg:my-20 my-10  w-full max-w-screen-xl px-4 md:px-16">
+      <div class="bg-pcolor rounded-3xl px-8 lg:py-0 md:py-14 pt-6 py-16">
+        <div class="grid lg:grid-cols-2">
+          <div class="my-0  lg:py-28 py-12">
+            <div class="">
+              <h2 class="font-semibold text-3xl">
+                Lorem ipsum dolor, sit amet adipisicing elit.
+              </h2>
+              <p class="my-4 text-2xl font-medium">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi
+                molestiae totam qui rerum eveniet dicta in nemo aliquam placeat
+                numquam.
+              </p>
+
+              <button
+                type="button"
+                class="text-white bg-cblack hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded text-sm px-5 py-2.5 lg:me-8 lg:mb-2 me-2 mb-2"
+              >
+                Watch Now
+              </button>
+            </div>
+          </div>
+          
+          <div class="flex justify-center items-center ">
+            <div class="w-full max-w-screen-lg ">
+              <div class="relative" style="padding-bottom: 56.25%;">
+                <iframe class="absolute rounded-3xl top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/73zHZbQ3LEo?si=n90KDa_AZyPcyTT3" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HomePage section 1 end  -->
+
+    <!-- Services Section 2 Start-->
+    <section
+      class="mx-auto w-full max-w-screen-xl px-4 md:px-16 py-10 md:py-12 bg-gray-50"
+    >
+      <div class="md:px-36">
+        <h1
+          class="md:text-4xl text-3xl text-center font-semibold text-cblack mb-6 md:mb-8"
+        >
+          Let's make the Link Building fast and easy
+        </h1>
+      </div>
+      <!-- Quality Section -->
+
+      <!-- ==== -->
+
+      <div class="mt-6">
+        <ul
+          id="tabs"
+          class="grid grid-cols-4 md:grid-cols-7 gap-2 items-center -mb-px text-sm font-medium text-center text-gray-500"
+        >
+          <li class="me-2">
+            <a
+              href="#tab1"
+              class="tab-link inline-flex items-center text-xs md:text-sm justify-center p-4 border-b-2 border-transparent rounded-t-lg group active-tab"
+            >
+              <img
+                class="w-4 mr-1"
+                src="/assets/services/1.png"
+                alt="services"
+              />
+              Quality Metrics
+            </a>
+          </li>
+          <li class="me-2">
+            <a
+              href="#tab2"
+              class="tab-link inline-flex items-center text-xs md:text-sm justify-center p-4 border-b-2 border-transparent rounded-t-lg group"
+              ><img
+                class="w-4 mr-1"
+                src="/assets/services/2.png"
+                alt="services"
+              />
+              Backlink Type
+            </a>
+          </li>
+          <li class="me-2">
+            <a
+              href="#tab3"
+              class="tab-link inline-flex items-center text-xs md:text-sm justify-center p-4 border-b-2 border-transparent rounded-t-lg group"
+              ><img
+                class="w-4 mr-1"
+                src="/assets/services/3.png"
+                alt="services"
+              />
+              Daily Payment
+            </a>
+          </li>
+          <li class="me-2">
+            <a
+              href="#tab4"
+              class="tab-link inline-flex items-center text-xs md:text-sm justify-center p-4 border-b-2 border-transparent rounded-t-lg group"
+              ><img
+                class="w-4 mr-1"
+                src="/assets/services/4.png"
+                alt="services"
+              />
+              Large Base
+            </a>
+          </li>
+          <li class="me-2">
+            <a
+              href="#tab5"
+              class="tab-link inline-flex items-center text-xs md:text-sm justify-center p-4 border-b-2 border-transparent rounded-t-lg group"
+              ><img
+                class="w-4 mr-1"
+                src="/assets/services/5.png"
+                alt="services"
+              />
+              High-speed placement
+            </a>
+          </li>
+          <li class="me-2">
+            <a
+              href="#tab6"
+              class="tab-link inline-flex items-center text-xs md:text-sm justify-center p-4 border-b-2 border-transparent rounded-t-lg group"
+              ><img
+                class="w-4 mr-1"
+                src="/assets/services/6.png"
+                alt="services"
+              />
+              Link building Dashboard
+            </a>
+          </li>
+          <li class="me-2">
+            <a
+              href="#tab7"
+              class="tab-link inline-flex items-center text-xs md:text-sm justify-center p-4 border-b-2 border-transparent rounded-t-lg group"
+              ><img
+                class="w-4 mr-1"
+                src="/assets/services/7.png"
+                alt="services"
+              />
+              Guarantees & safety
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="tab-content" class="p-2">
+        <!-- Content for each tab goes here -->
+        <div id="tab1" class="tab-content">
+          <div class="grid md:grid-cols-2 gap-2">
+            <div
+              class="duration-700 ease-in-out flex justify-left items-center"
+              data-carousel-item
+            >
+              <div class="">
+                <h1 class="text-2xl md:text-4xl font-semibold">
+                  30+ Quality Metrics for Selecting Websites
+                </h1>
+                <ul class="list-disc ml-5 mt-3">
+                  <li>Moz, Ahref, SEO quake and more 27</li>
+                  <li>We can find what you want with any metrics</li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex justify-center items-center">
+              <img class="w-[250px]" src="/assets/c/1.png" alt="Image1" />
+            </div>
+          </div>
+        </div>
+        <div id="tab2" class="tab-content hidden">
+          <div class="grid md:grid-cols-2 gap-2">
+            <div
+              class="duration-700 ease-in-out flex justify-left items-center"
+              data-carousel-item
+            >
+              <div class="">
+                <h1 class="text-2xl md:text-4xl font-semibold">
+                  Integrate with Diverse Backlink Strategies
+                </h1>
+                <ul class="list-disc ml-5 mt-3">
+                  <li>
+                    We provide all types of backlinks organic, paid, and EDU,
+                    GOV
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex justify-center items-center">
+              <img class="w-[250px]" src="/assets/c/2.png" alt="Image1" />
+            </div>
+          </div>
+        </div>
+        <div id="tab3" class="tab-content hidden">
+          <div class="grid md:grid-cols-2 gap-2">
+            <div
+              class="duration-700 ease-in-out flex justify-left items-center"
+            >
+              <div class="">
+                <h1 class="text-2xl md:text-4xl font-semibold">
+                  Cash Flow Depends on the Subscription
+                </h1>
+                <ul class="list-disc ml-5 mt-3">
+                  <li>Daily backlinks basis</li>
+                  <li>Monthly basis</li>
+                  <li>Backlinks according</li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex justify-center items-center">
+              <img class="w-[250px]" src="/assets/c/3.png" alt="Image1" />
+            </div>
+          </div>
+        </div>
+        <div id="tab4" class="tab-content hidden">
+          <div class="grid md:grid-cols-2 gap-2">
+            <div
+              class="duration-700 ease-in-out flex justify-left items-center"
+            >
+              <div class="">
+                <h1 class="text-2xl md:text-4xl font-semibold">
+                  10k Websites, 1M Pages
+                </h1>
+                <ul class="list-disc ml-5 mt-3">
+                  <li>Assure the authenticity of every website</li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex justify-center items-center">
+              <img class="w-[250px]" src="/assets/c/4.png" alt="Image1" />
+            </div>
+          </div>
+        </div>
+        <div id="tab5" class="tab-content hidden">
+          <div class="grid md:grid-cols-2 gap-2">
+            <div
+              class="duration-700 ease-in-out flex justify-left items-center"
+            >
+              <div class="">
+                <h1 class="text-2xl md:text-4xl font-semibold">
+                  Programmed Backlinks with Installation and Elimination
+                </h1>
+                <ul class="list-disc ml-5 mt-3">
+                  <li>Start the project</li>
+                  <li>Choose the website & Purchase</li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex justify-center items-center">
+              <img class="w-[250px]" src="/assets/c/5.png" alt="Image1" />
+            </div>
+          </div>
+        </div>
+        <div id="tab6" class="tab-content hidden">
+          <div class="grid md:grid-cols-2 gap-2">
+            <div
+              class="duration-700 ease-in-out flex justify-left items-center"
+            >
+              <div class="">
+                <h1 class="text-2xl md:text-4xl font-semibold">
+                  Link Building Status & Report
+                </h1>
+                <ul class="list-disc ml-5 mt-3">
+                  <li>Your data is not scattered</li>
+                  <li>You can find every project in the same place</li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex justify-center items-center">
+              <img class="w-[250px]" src="/assets/c/6.png" alt="Image1" />
+            </div>
+          </div>
+        </div>
+        <div id="tab7" class="tab-content hidden">
+          <div class="grid md:grid-cols-2 gap-2">
+            <div
+              class="duration-700 ease-in-out flex justify-left items-center"
+            >
+              <div class="">
+                <h1 class="text-2xl md:text-4xl font-semibold">
+                  Perfect Placement & Proper Indexation
+                </h1>
+                <ul class="list-disc ml-5 mt-3">
+                  <li>We do multiple verifications</li>
+                  <li>Make sure your backlinks indexation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex justify-center items-center">
+              <img class="w-[250px]" src="/assets/c/7.png" alt="Image1" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section 1 Start-->
+    <section class="py-10 flex justify-center px-4 lg:px-16 bg-white">
+      <div class="mx-auto w-full max-w-screen-xl">
+        <div
+          class="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 gap-4 px-4 py-5"
+        >
+          <div class="flex gap-2">
+            <div>
+              <div><img class="w-6" src="/assets/Group 35.png" alt="" /></div>
+            </div>
+            <div>
+              <p class="block">
+                <span class="stat-number text-4xl font-bold">25</span
+                ><span class="text-pcolor font-bold">+</span>
+              </p>
+              <span>Experince Years</span
+              ><img class="w-28" src="/assets/bar.png" alt="" srcset="" />
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <div>
+              <div><img class="w-6" src="/assets/Group 32.png" alt="" /></div>
+            </div>
+            <div>
+              <p class="block">
+                <span class="stat-number text-4xl font-bold">120</span
+                ><span class="text-pcolor font-bold">+</span>
+              </p>
+              <span>Successful Projects</span
+              ><img class="w-28" src="/assets/bar.png" alt="" srcset="" />
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <div>
+              <div><img class="w-6" src="/assets/Group 33.png" alt="" /></div>
+            </div>
+            <div>
+              <p class="block">
+                <span class="stat-number text-4xl font-bold">160</span
+                ><span class="text-pcolor font-bold">+</span>
+              </p>
+              <span>Happy Customers</span
+              ><img class="w-28" src="/assets/bar.png" alt="" srcset="" />
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <div>
+              <div><img class="w-7" src="/assets/Group 334.png" alt="" /></div>
+            </div>
+            <div>
+              <p class="block">
+                <span class="stat-number text-4xl font-bold">45</span
+                ><span class="text-pcolor font-bold">+</span>
+              </p>
+              <span>Team Member</span
+              ><img class="w-28" src="/assets/bar.png" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section 2 end-->
+    <!-- Services Section last start-->
+
+    <section class="bg-pcolor py-10 flex justify-center px-4 lg:px-16">
+      <div class="mx-auto w-full max-w-screen-xl">
+        <h2
+          class="my-2 px-4 md:px-44 py-10 text-2xl text-cblack text-center font-medium"
+        >
+          Lorem, ipsum dolor sit amet consectetur W dolor consectetur
+          adipisicing elit. Lorem, ipsum dolor sit amet consectetur W dolor
+          consectetur adipisicing elit.
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-5">
+          <div class="border border-gray-600 p-4 rounded-lg">
+            <p class="flex gap-3 justify-center items-center">
+              <img src="/assets/Group 147.png" class="w-10 h-12" alt="" /><span
+                class="ms-3 font-raleway"
+                >Boost SEO Earn Money</span
+              >
+            </p>
+          </div>
+          <div class="border border-gray-600 p-4 rounded-lg">
+            <p class="flex gap-3 justify-center items-center">
+              <img src="/assets/Group 31.png" class="w-10 h-12" alt="" /><span
+                class="ms-3 font-raleway"
+                >Sharing our referral link and earning up to 15% of the
+                commission</span
+              >
+            </p>
+          </div>
+          <div class="border border-gray-600 p-4 rounded-lg">
+            <p class="flex gap-3 justify-center items-center">
+              <img src="/assets/Group 146b.png" class="w-10 h-12" alt="" /><span
+                class="ms-3 font-raleway"
+                >Our partners are earning exponentially
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center rounded-xl my-5 px-2">
+          <div class="bg-white rounded-3xl font-raleway flex">
+            <input
+              type="text"
+              class="border-0 p-3 focus:ring-0 w-full md:w-40 lg:w-max rounded-l-3xl"
+              id=""
+              placeholder="Your Website"
+            />
+            <button
+              class="p-3 text-white bg-cblack text-sm md:text-lg rounded-r-3xl hover:font-medium transition duration-300"
+              type="submit"
+            >
+              Register Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section last end-->
+
+    <!-- Footer Section start  -->
+    <footer class="bg-cblack inset-x-0 bottom-0 lg:px-16">
+      <div
+        class="mx-auto w-full max-w-screen-xl p-4 lg:py-8 border-b border-cgray"
+      >
+        <div class="md:flex justify-between pt-2">
+          <div class="py-4 w-full md:w-1/2">
+            <h1 class="text-4xl text-white font-raleway">Get In Touch</h1>
+            <div
+              class="lg:flex block gap-6 text-start w-full text-sm text-white mt-2 font-poppins py-2"
+            >
+              <a
+                href="tel:+917217827243"
+                class="flex gap-3 justify-start items-center"
+                ><i class="fa-solid fa-phone" text-white></i>
+                <span>+91 7217827243</span>
+              </a>
+              <a
+                href="mailto:Info@savincommunication.com"
+                class="flex gap-3 justify-start items-center py-2"
+                ><i class="fa-solid fa-envelope" text-white></i>
+                <span>info@savincommunication.com</span>
+              </a>
+            </div>
+            <div class="flex gap-4 my-2">
+              <div class="">
+                <a
+                  href="#"
+                  class="border border-white hover:border-pcolor rounded-sm py-1"
+                >
+                  <i
+                    class="fa-brands fa-facebook-f p-2 social-icons text-cwhite hover:text-pcolor"
+                  ></i>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="#"
+                  class="border border-white hover:border-pcolor rounded-sm py-1"
+                >
+                  <i
+                    class="fa-brands fa-instagram p-2 social-icons text-cwhite hover:text-pcolor"
+                  ></i>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="#"
+                  class="border border-white hover:border-pcolor rounded-sm py-1"
+                >
+                  <i
+                    class="fa-brands fa-linkedin p-2 social-icons text-cwhite hover:text-pcolor"
+                  ></i
+                ></a>
+              </div>
+              <div>
+                <a
+                  href="#"
+                  class="border border-white hover:border-pcolor rounded-sm py-1"
+                >
+                  <i
+                    class="fa-brands fa-x-twitter p-2 social-icons text-cwhite hover:text-pcolor"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="py-4 w-full md:w-1/2">
+            <div class="lg:flex lg:gap-8">
+              <input
+                type="text"
+                placeholder="Your Name"
+                class="bg-cblack w-full md:w-48 pl-0 outline-gray-600 border-0 border-b border-cgray focus:border-pcolor focus:ring-0 text-white"
+              />
+              <input
+                type="text"
+                placeholder="Your Phone Number"
+                class="bg-cblack w-full md:w-48 border-0 pl-0 border-b border-cgray focus:ring-0 text-white focus:border-pcolor"
+              />
+            </div>
+            <div class="lg:flex lg:gap-8">
+              <input
+                type="text"
+                placeholder="Your Email Address"
+                class="bg-cblack w-full md:w-48 border-0 pl-0 border-b border-cgray focus:ring-0 text-white focus:border-pcolor"
+              />
+              <input
+                type="text"
+                placeholder="Message"
+                class="bg-cblack w-full md:w-48 border-0 pl-0 border-b border-cgray focus:ring-0 text-white focus:border-pcolor"
+              />
+            </div>
+
+            <div class="mt-5">
+              <button
+                class="px-6 py-2 bg-pcolor hover:bg-scolor hover:text-cwhite transition duration-300 rounded-sm"
+                type="submit"
+              >
+                Send Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full text-center py-4">
+        <span class="text-sm text-gray-500 font-poppins"
+          >&copy; 2024
+          <a href="#" class="hover:underline">All Rights Reserved.</a>
+        </span>
+      </div>
+    </footer>
+
+    <!-- Footer Section end  -->
+
+    <!-- flowbite js  -->
+    <script src="/assets/js/flowbite.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#tabs a").hover(
+          function () {
+            // Change content on hover
+            var tabContentId = $(this).attr("href");
+            var hoverContent = $(tabContentId).data("hover-content");
+            if (hoverContent) {
+              $(tabContentId).html("<p>" + hoverContent + "</p>");
+            }
+          },
+          function () {
+            // Restore original content on mouse leave
+            var tabContentId = $(this).attr("href");
+            var originalContent = $(tabContentId).data("original-content");
+            if (originalContent) {
+              $(tabContentId).html("<p>" + originalContent + "</p>");
+            }
+          }
+        );
+
+        $("#tabs a").click(function (e) {
+          e.preventDefault(); // Prevent the default behavior of the link
+
+          // Remove 'active' class from all tabs
+          $("#tabs a").removeClass("active-tab");
+          // Add 'active' class to the clicked tab
+          $(this).addClass("active-tab");
+
+          // Hide all tab content
+          $(".tab-content").hide();
+          // Show the content of the clicked tab
+          var tabContentId = $(this).attr("href");
+          $(tabContentId).show();
+        });
+
+        // Store original content for each tab
+        $("#tabs a").each(function () {
+          var tabContentId = $(this).attr("href");
+          var originalContent = $(tabContentId).data("original-content");
+          $(tabContentId).data("original-content", originalContent);
+        });
+      });
+    </script>
+
+    <!-- script for counter -->
+    <script>
+      $(".stat-number").each(function () {
+        var size = $(this).text().split(".")[1]
+          ? $(this).text().split(".")[1].length
+          : 0;
+        $(this)
+          .prop("Counter", 0)
+          .animate(
+            {
+              Counter: $(this).text(),
+            },
+            {
+              duration: 5000,
+              step: function (func) {
+                $(this).text(parseFloat(func).toFixed(size));
+              },
+            }
+          );
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.counterup/1.0/jquery.counterup.min.js"></script>
+    <!-- script for counter -->
+  </body>
+</html>

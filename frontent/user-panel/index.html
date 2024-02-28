@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Panel</title>
+    <!-- Font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind cdn -->
+    <script src="/assets/css/tailwind.css"></script>
+    <!-- flowbite css cdn  -->
+    <link
+      href="/assets/css/flowbite.css"
+      rel="stylesheet"
+    />
+    <!-- jquery  -->
+    <script src="/assets/js/jquery.js"></script>
+
+    <style>
+      /* Add your custom styles here */
+      #tabs a:hover,
+      #tabs a.active-tab {
+        border-bottom: 2px solid #ffbe50;
+      }
+    </style>
+  </head>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pcolor: "#FFBE50",
+            scolor: "#E66526",
+            cblack: "#212529",
+            cwhite: "#ffffff",
+            cgray: "#666666",
+          },
+          fontFamily: {
+            raleway: ["Raleway", "sans-serif"],
+            poppins: ["Poppins", "sans-serif"],
+          },
+          backgroundImage: {
+            "hero-back-img": "url('./assets/page-02.png')",
+          },
+        },
+      },
+    };
+  </script>
+
+  <body class="font-poppins">
+    <!-- HomePage section 1 start  -->
+
+    <button
+      data-drawer-target="sidebar-multi-level-sidebar"
+      data-drawer-toggle="sidebar-multi-level-sidebar"
+      aria-controls="sidebar-multi-level-sidebar"
+      type="button"
+      class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+    >
+      <span class="sr-only">Open sidebar</span>
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+        ></path>
+      </svg>
+    </button>
+
+    <aside
+      id="sidebar-multi-level-sidebar"
+      class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      aria-label="Sidebar"
+    >
+      <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 ">
+        <ul class="space-y-2 font-medium">
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group"
+            >
+              <img
+                class="w-24 h-auto"
+                src="../assets/link-logo.png"
+                alt="logo"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="./index.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <svg
+                class="w-5 h-5 text-gray-500 transition duration-75  group-hover:text-gray-900 "
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 22 21"
+              >
+                <path
+                  d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"
+                />
+                <path
+                  d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"
+                />
+              </svg>
+              <span class="ms-3">All Project</span>
+            </a>
+          </li>
+          <li><hr /></li>
+          <li>
+            <span class="ms-3 uppercase text-xs text-gray-500 tracking-widest"
+              >Project</span
+            >
+          </li>
+          <li>
+            <button
+              type="button"
+              class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 "
+              aria-controls="dropdown-all-groups"
+              data-collapse-toggle="dropdown-all-groups"
+            >
+              <span
+                class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap"
+                >All Links</span
+              >
+              <svg
+                class="w-3 h-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </button>
+            <ul id="dropdown-all-groups" class="hidden py-2 space-y-2 z-20">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 "
+                  >Link 1</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 "
+                  >Link 2</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 "
+                  >Link 3</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="./promoted-pages.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Promoted Pages</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Puchased Links</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="./content.html"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Content</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Automation</span>
+            </a>
+          </li>
+
+          <li><hr /></li>
+          <li>
+            <span class="ms-3 uppercase text-xs text-gray-500 tracking-widest"
+              >General</span
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">All Backlinks</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Finance</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Filters</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Favorites</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <span class="flex-1 ms-3 whitespace-nowrap">Global Backlist</span>
+            </a>
+          </li>
+          <li class="pt-6 text-center">
+            <span class="text-[8px] text-gray-400"
+              >&copy; Copyright 2024 | Privacy policy</span
+            >
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <div class="p-4 sm:ml-64">
+      <div class="flex items-center justify-between my-1 mx-4">
+        <!-- left div -->
+        <div class="flex items-center gap-3">
+          <div>
+            <button
+              id="balanceDropdownButton"
+              data-dropdown-toggle="balance-multi-dropdown"
+              class="ps-20 py-1 text-center text-scolor inline-flex items-center"
+              type="button"
+            >
+              Balance $ 0
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </button>
+            <!-- Balance Dropdown menu -->
+            <div
+              id="balance-multi-dropdown"
+              class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow-xl w-56 "
+            >
+              <ul
+                class="py-2 text-sm text-gray-700 "
+                aria-labelledby="balanceDropdownButton"
+              >
+                <li class="py-2">
+                  <p
+                    class="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    AVAILABLE
+                  </p>
+                  <p
+                    class="block px-4 py-1 text-2xl hover:bg-gray-100"
+                  >
+                    $ 0
+                  </p>
+                  <hr />
+                </li>
+                <li class="py-2">
+                  <p
+                    class="block px-4 p-1 hover:bg-gray-100"
+                  >
+                    BALANCE AND HOLD FUNDS
+                  </p>
+                  <p
+                    class="block px-4 py-1 text-2xl hover:bg-gray-100"
+                  >
+                    $ 0
+                  </p>
+                </li>
+                <li class="mx-4 my-2">
+                  <button
+                    type="button"
+                    class="py-2 px-2 mx-auto w-full text-2xs text-gray-900 bg-white rounded-lg border border-scolor hover:bg-gray-100 hover:text-scolor"
+                  >
+                    + Top Up the Balance
+                  </button>
+                </li>
+
+                <li class="mt-4 py-1 block">
+                  <div id="accordion-collapse" data-accordion="collapse">
+                    <h2 id="accordion-collapse-heading-1">
+                      <button
+                        type="button"
+                        class="flex items-center justify-between hover:bg-gray-100 w-full block px-4 py-3 p-1 gap-3"
+                        data-accordion-target="#accordion-collapse-body-1"
+                        aria-expanded="false"
+                        aria-controls="accordion-collapse-body-1"
+                      >
+                        <span>Activate a promo code </span>
+                        <svg
+                          data-accordion-icon
+                          class="w-3 h-3 rotate-180 shrink-0"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 10 6"
+                        >
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"
+                          />
+                        </svg>
+                      </button>
+                    </h2>
+                    <div
+                      id="accordion-collapse-body-1"
+                      class="hidden mx-4"
+                      aria-labelledby="accordion-collapse-heading-1"
+                    >
+                      <div class="w-full mt-2">
+                        <input
+                          class="py-1 my-2 px-2 mx-auto rounded border border-scolor focus:border-scolor focus:ring-0 w-full"
+                          type="text"
+                          name=""
+                          id=""
+                        />
+
+                        <button
+                          type="button"
+                          class="py-2 my-2 px-2 mx-auto w-full text-2xs text-gray-900 bg-white rounded-lg border border-scolor hover:bg-gray-100 hover:text-scolor"
+                        >
+                          Activate
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="my-2 px-4 py-2 hover:bg-gray-100">
+                  <a
+                    href="#"
+                    class="flex justify-between items-center gap-2 py-2 hover:bg-gray-100"
+                    ><span>Mutual payments</span>
+
+                    <span
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="black"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <button
+              class="ps-10 py-1 text-center text-scolor inline-flex items-center"
+              type="button"
+            >
+              + Top up the balance
+            </button>
+          </div>
+          <div>
+            <button
+              id="promoDropdownButton"
+              data-dropdown-toggle="promo-multi-dropdown"
+              class="ps-10 py-1 text-center text-scolor inline-flex items-center"
+              type="button"
+            >
+              Promo Code
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </button>
+            <!-- Balance Dropdown menu -->
+            <div
+              id="promo-multi-dropdown"
+              class="z-10 px-4 hidden bg-white divide-y divide-gray-100 rounded shadow-xl w-44 "
+            >
+              <ul
+                class="py-2 text-sm text-gray-700 "
+                aria-labelledby="promoDropdownButton"
+              >
+                <li class="py-2">
+                  <div class="w-full mt-2">
+                    <input
+                      class="py-1 my-2 px-2 mx-auto rounded border border-scolor focus:border-scolor focus:ring-0 w-full"
+                      type="text"
+                      name=""
+                      id=""
+                    />
+                    <button
+                      type="button"
+                      class="py-2 my-2 px-2 mx-auto w-full text-2xs text-gray-900 bg-white rounded-lg border border-scolor hover:bg-gray-100 hover:text-scolor"
+                    >
+                      Activate
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="">
+            <button
+              type="button"
+              class="py-2 px-2 mx-auto w-full text-xs text-gray-900 bg-white rounded-lg border border-scolor hover:bg-gray-100 hover:text-scolor"
+            >
+              Affiliate Program
+            </button>
+          </div>
+        </div>
+        <!-- right div -->
+
+        <!-- help === -->
+        <div class="flex items-center">
+          <a
+            href="#"
+            class="py-2 px-2 mx-auto w-full text-xs text-gray-900 bg-white rounded-lg hover:bg-gray-100 hover:text-scolor"
+          >
+            Help
+          </a>
+
+          <a
+            href="#"
+            class="py-2 px-2 mx-auto w-full text-xs text-gray-900 bg-white rounded-lg hover:bg-gray-100 hover:text-scolor"
+          >
+            Blog
+          </a>
+
+          <a href="#"
+            ><svg
+              class="ml-2 w-5 h-5 fill-scolor"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m437.019531 74.980469c-48.351562-48.351563-112.640625-74.980469-181.019531-74.980469s-132.667969 26.628906-181.019531 74.980469c-48.351563 48.351562-74.980469 112.640625-74.980469 181.019531s26.628906 132.667969 74.980469 181.019531c48.351562 48.351563 112.640625 74.980469 181.019531 74.980469s132.667969-26.628906 181.019531-74.980469c48.351563-48.351562 74.980469-112.640625 74.980469-181.019531s-26.628906-132.667969-74.980469-181.019531zm-325.914062 354.316406c8.453125-72.734375 70.988281-128.890625 144.894531-128.890625 38.960938 0 75.597656 15.179688 103.15625 42.734375 23.28125 23.285156 37.964844 53.6875 41.742188 86.152344-39.257813 32.878906-89.804688 52.707031-144.898438 52.707031s-105.636719-19.824219-144.894531-52.703125zm144.894531-159.789063c-42.871094 0-77.753906-34.882812-77.753906-77.753906 0-42.875 34.882812-77.753906 77.753906-77.753906s77.753906 34.878906 77.753906 77.753906c0 42.871094-34.882812 77.753906-77.753906 77.753906zm170.71875 134.425782c-7.644531-30.820313-23.585938-59.238282-46.351562-82.003906-18.4375-18.4375-40.25-32.269532-64.039063-40.9375 28.597656-19.394532 47.425781-52.160157 47.425781-89.238282 0-59.414062-48.339844-107.753906-107.753906-107.753906s-107.753906 48.339844-107.753906 107.753906c0 37.097656 18.84375 69.875 47.464844 89.265625-21.886719 7.976563-42.140626 20.308594-59.566407 36.542969-25.234375 23.5-42.757812 53.464844-50.882812 86.347656-34.410157-39.667968-55.261719-91.398437-55.261719-147.910156 0-124.617188 101.382812-226 226-226s226 101.382812 226 226c0 56.523438-20.859375 108.265625-55.28125 147.933594zm0 0"
+              />
+            </svg>
+          </a>
+          <a class="ml-2 text-xs" href="#">UserName</a>
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="flex justify-between gap-4 mb-4">
+          <h1 class="text-3xl">My projects</h1>
+          <button
+            class="bg-pcolor rounded px-3 py-1 text-xs hover:bg-pcolor/85"
+          >
+            + Create a Project
+          </button>
+        </div>
+
+        <div class="mt-4">
+          <div class="flex justify-between items-center">
+            <div class="my-2">
+              <ul
+                id="tabs"
+                class="flex flex-wrap gap-3 -mb-px text-sm font-medium text-center text-gray-500 "
+              >
+                <li class="me-2">
+                  <a
+                    href="#dashboard"
+                    class="tab-link active-tab inline-flex items-center justify-center p-2 border-b-2 border-transparent rounded-t-lg group"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <li class="me-2">
+                  <a
+                    href="#link-profile"
+                    class="tab-link inline-flex items-center justify-center p-2 border-b-2 border-transparent rounded-t-lg group"
+                  >
+                    Link profile
+                  </a>
+                </li>
+                <li class="me-2">
+                  <a
+                    href="#link-status"
+                    class="tab-link inline-flex items-center justify-center p-2 border-b-2 border-transparent rounded-t-lg group"
+                  >
+                    Link status
+                  </a>
+                </li>
+                <li class="flex justify-center items-center">
+                  <!-- all group Dropdown menu -->
+
+                  <button
+                    id="balanceDropdownButton2"
+                    data-dropdown-toggle="balance-multi-dropdown2"
+                    class="ps-10 py-1 text-center text-gray-500 inline-flex items-center"
+                    type="button"
+                  >
+                    All Groups
+                    <svg
+                      class="w-2.5 h-2.5 ms-3"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 10 6"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m1 1 4 4 4-4"
+                      />
+                    </svg>
+                  </button>
+                  <!-- all group Dropdown menu -->
+                  <div class="">
+                    <div
+                      id="balance-multi-dropdown2"
+                      class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow-xl w-56 "
+                    >
+                      <div class="grid grid-cols-1">
+                        <ul
+                          class="py-2 text-sm text-gray-700 "
+                          aria-labelledby="balanceDropdownButton2"
+                        >
+                          <li
+                            class="py-2 flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          >
+                            <p class="  ">All groups</p>
+                            <p>1</p>
+                          </li>
+                          <li
+                            class="py-2 flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          >
+                            <p class="  ">Default</p>
+                            <p>0</p>
+                          </li>
+                          <li
+                            class="py-2 flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          >
+                            <p class="  ">Archive</p>
+                            <p>0</p>
+                          </li>
+                          <li
+                            class="py-2 flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          >
+                            <p class="  ">Wizard</p>
+                            <p>2</p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <form class="flex items-center">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                  <div
+                    class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    id="simple-search"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full ps-10 p-2.5 "
+                    placeholder="Project Name..."
+                    required
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div id="tab-content" class="mt-4">
+            <div id="dashboard" class="tab-content">
+              <!-- first div  -->
+              <div
+                class="bg-gray-100 grid grid-cols-3 gap-10 px-5 items-center border py-2"
+              >
+                <div><span class="text-xs">Project</span></div>
+                <div class="col-span-2 flex justify-between gap-2">
+                  <span class="text-2xs">Placed links</span>
+                  <span class="text-2xs">In process</span>
+                  <span class="text-2xs">Progress, latest 30 days</span>
+                  <span class="text-2xs">Used URLs</span>
+                  <span class="text-2xs">Automodes</span>
+                  <span class="text-2xs">Monthly expenditures</span>
+                </div>
+              </div>
+
+              <!-- second div  -->
+              <!-- if data is empty  -->
+              <!-- <div class="border p-5">
+                <div class="">
+                  <div class="flex justify-center items-center my-4 mt-24">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 64 64"
+                      width="40"
+                      height="40"
+                      fill="#c2c0c0"
+                    >
+                      <g id="Prohibited_Sign" data-name="Prohibited Sign">
+                        <path
+                          d="M49.83643,10.415A28.00077,28.00077,0,1,0,60,32,28.04243,28.04243,0,0,0,49.83643,10.415ZM32,10a22.02191,22.02191,0,0,1,13.27618,4.48163l-30.8,30.8A21.9855,21.9855,0,0,1,32,10Zm0,44a21.88362,21.88362,0,0,1-13.28162-4.4762L49.53094,18.71124A21.99789,21.99789,0,0,1,32,54Z"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <div>
+                    <h1 class="flex justify-center items-center my-10">
+                      No projects in the selected group
+                    </h1>
+                  </div>
+                </div>
+              </div> -->
+
+              <div
+                class="px-5 bg-gray-100 grid grid-cols-3 gap-10 items-center border-t-2 border-white py-2"
+              >
+                <div>
+                  <span class="text-xs"
+                    >https://www.simform....m/blog/companies-using-nodejs/</span
+                  >
+                </div>
+                <div class="col-span-2 flex justify-between gap-2">
+                  <span class="text-sm">2 STEPS LEFT</span>
+                  <span class="text-2xs flex">
+                    <p class="border rounded-l-lg w-10 h-6 bg-pcolor"></p>
+                    <p class="border w-10 h-6 bg-pcolor"></p>
+                    <p class="border w-10 h-6 bg-white"></p>
+                    <p class="border rounded-r-lg w-10 h-6 bg-white"></p
+                  ></span>
+
+                  <span class="text-xs"
+                    ><button
+                      type="button"
+                      class="border border-pcolor p-2 bg-white rounded"
+                    >
+                      <i class="fas fa-search me-2"></i>Buy Links
+                    </button></span
+                  >
+                  <span class="text-xs"
+                    ><button
+                      type="button"
+                      class="border border-pcolor p-2 bg-white rounded"
+                    >
+                      <i class="fas fa-plus me-2"></i>Top up the balance
+                    </button></span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div id="link-profile" class="tab-content hidden">
+              <!-- first div  -->
+
+              <div
+                class="bg-gray-100 grid grid-cols-4 gap-10 px-5 items-center py-2"
+              >
+                <div><span class="text-xs">Project</span></div>
+                <div class="grid grid-cols-1 justify-center items-center gap-2">
+                  <div class="border-b border-gray-300">
+                    <span class="text-2xs flex justify-center"
+                      >Link Trading Link</span
+                    >
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-2xs">Niche Edits</span>
+                    <span class="text-2xs">Contextual</span>
+                    <span class="text-2xs">Sidewide</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 justify-center items-center gap-2">
+                  <div class="border-b border-gray-300">
+                    <span class="text-2xs flex justify-center"
+                      >Guest Posts Links</span
+                    >
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-2xs">Publisher's Article</span>
+                    <span class="text-2xs">Advertiser's Article</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 justify-center items-center gap-2">
+                  <div class="border-b border-gray-300">
+                    <span class="text-2xs flex justify-center"
+                      >Link Insertion</span
+                    >
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-2xs">In The News</span>
+                    <span class="text-2xs">In The Archive</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- second div  -->
+              <!-- <div class="border p-5">
+                <div class="">
+                  <div class="flex justify-center items-center my-4 mt-24">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 64 64"
+                      width="40"
+                      height="40"
+                      fill="#c2c0c0"
+                    >
+                      <g id="Prohibited_Sign" data-name="Prohibited Sign">
+                        <path
+                          d="M49.83643,10.415A28.00077,28.00077,0,1,0,60,32,28.04243,28.04243,0,0,0,49.83643,10.415ZM32,10a22.02191,22.02191,0,0,1,13.27618,4.48163l-30.8,30.8A21.9855,21.9855,0,0,1,32,10Zm0,44a21.88362,21.88362,0,0,1-13.28162-4.4762L49.53094,18.71124A21.99789,21.99789,0,0,1,32,54Z"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <div>
+                    <h1 class="flex justify-center items-center my-10">
+                      No projects in the selected group
+                    </h1>
+                  </div>
+                </div>
+              </div> -->
+
+              <div
+                class="bg-white grid grid-cols-4 gap-10 px-5 items-center border-b py-2"
+              >
+                <div>
+                  <span class="text-xs"
+                    >https://www.simform....m/blog/companies-using-nodejs/</span
+                  >
+                </div>
+                <div class="grid grid-cols-1 justify-center items-center gap-2">
+                  <div class="flex justify-between">
+                    <span class="text-2xs">0</span>
+                    <span class="text-2xs">0</span>
+                    <span class="text-2xs">0</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 justify-center items-center gap-2">
+                  <div class="flex justify-between">
+                    <span class="text-2xs">0</span>
+                    <span class="text-2xs">0</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 justify-center items-center gap-2">
+                  <div class="flex justify-between">
+                    <span class="text-2xs">0</span>
+                    <span class="text-2xs">0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="link-status" class="tab-content hidden">
+              <!-- first div  -->
+              <div
+                class="bg-gray-100 grid grid-cols-3 gap-10 px-5 items-center border py-2"
+              >
+                <div><span class="text-xs">Project</span></div>
+                <div class="col-span-2 flex justify-between gap-2">
+                  <span class="text-2xs">Requests </span>
+                  <span class="text-2xs">Placed</span>
+                  <span class="text-2xs">In process </span>
+                  <span class="text-2xs">Sleep links, manually</span>
+                  <span class="text-2xs">Sleep links, balance</span>
+                  <span class="text-2xs">Placement errors</span>
+                  <span class="text-2xs">Changes</span>
+                </div>
+              </div>
+
+              <!-- second div  -->
+              <!-- <div class="border p-5">
+                <div class="">
+                  <div class="flex justify-center items-center my-4 mt-24">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 64 64"
+                      width="40"
+                      height="40"
+                      fill="#c2c0c0"
+                    >
+                      <g id="Prohibited_Sign" data-name="Prohibited Sign">
+                        <path
+                          d="M49.83643,10.415A28.00077,28.00077,0,1,0,60,32,28.04243,28.04243,0,0,0,49.83643,10.415ZM32,10a22.02191,22.02191,0,0,1,13.27618,4.48163l-30.8,30.8A21.9855,21.9855,0,0,1,32,10Zm0,44a21.88362,21.88362,0,0,1-13.28162-4.4762L49.53094,18.71124A21.99789,21.99789,0,0,1,32,54Z"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <div>
+                    <h1 class="flex justify-center items-center my-10">
+                      No projects in the selected group
+                    </h1>
+                  </div>
+                </div>
+              </div> -->
+              <div
+                class="px-5 bg-white grid grid-cols-3 gap-10 items-center border-b py-2"
+              >
+                <div>
+                  <span class="text-xs"
+                    >https://www.simform....m/blog/companies-using-nodejs/</span
+                  >
+                </div>
+                <div class="col-span-2 flex justify-between gap-2">
+                  <span class="text-2xs">0</span>
+                  <span class="text-2xs">0</span>
+                  <span class="text-2xs">0</span>
+                  <span class="text-2xs">0</span>
+                  <span class="text-2xs">0</span>
+                  <span class="text-2xs">0</span>
+                  <span class="text-2xs">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <button
+                class="p-1.5 px-2 border rounded bg-pcolor hover:bg-pcolor/80 text-xs flex gap-2 items-center"
+              >
+                <span>Export Data</span>
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    id="a9148db4-8702-4948-b3d7-c33f0782daf4"
+                    data-name="Download"
+                  >
+                    <path
+                      d="m28 24v-4a1 1 0 0 0 -2 0v4a1 1 0 0 1 -1 1h-18a1 1 0 0 1 -1-1v-4a1 1 0 0 0 -2 0v4a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3zm-6.38-5.22-5 4a1 1 0 0 1 -1.24 0l-5-4a1 1 0 0 1 1.24-1.56l3.38 2.7v-13.92a1 1 0 0 1 2 0v13.92l3.38-2.7a1 1 0 1 1 1.24 1.56z"
+                    />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= HomePage section 1 end -->
+
+    <!-- flowbite js cdn  -->
+    <script src="/assets/js/flowbite.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#tabs a").hover(
+          function () {
+            // Change content on hover
+            var tabContentId = $(this).attr("href");
+            var hoverContent = $(tabContentId).data("hover-content");
+            if (hoverContent) {
+              $(tabContentId).html("<p>" + hoverContent + "</p>");
+            }
+          },
+          function () {
+            // Restore original content on mouse leave
+            var tabContentId = $(this).attr("href");
+            var originalContent = $(tabContentId).data("original-content");
+            if (originalContent) {
+              $(tabContentId).html("<p>" + originalContent + "</p>");
+            }
+          }
+        );
+
+        $("#tabs a").click(function (e) {
+          e.preventDefault(); // Prevent the default behavior of the link
+
+          // Remove 'active' class from all tabs
+          $("#tabs a").removeClass("active-tab");
+          // Add 'active' class to the clicked tab
+          $(this).addClass("active-tab");
+
+          // Hide all tab content
+          $(".tab-content").hide();
+          // Show the content of the clicked tab
+          var tabContentId = $(this).attr("href");
+          $(tabContentId).show();
+        });
+
+        // Store original content for each tab
+        $("#tabs a").each(function () {
+          var tabContentId = $(this).attr("href");
+          var originalContent = $(tabContentId).data("original-content");
+          $(tabContentId).data("original-content", originalContent);
+        });
+      });
+    </script>
+  </body>
+</html>
