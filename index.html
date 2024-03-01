@@ -35,42 +35,9 @@
         border-bottom: 1.5px solid #ffbe50;
         color: #ffbe50;
       }
-
-      /* for counter */
-      /* .align {
-        -webkit-display: flex;
-        -moz-display: flex;
-        -ms-display: flex;
-        -o-display: flex;
-        display: flex;
-        -webkit-flex-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-        height: 200px;
+      .transition-colors {
+        @apply transition-colors duration-800 ease-in-out;
       }
-      .stat-wrap {
-        background: #fff;
-        -webkit-display: flex;
-        -moz-display: flex;
-        -ms-display: flex;
-        -o-display: flex;
-        display: flex;
-        justify-content: space-between;
-        padding: 50px;
-        width: 100%;
-        div {
-          font-size: 20px;
-          font-weight: bold;
-          text-align: center;
-        }
-      }
-      .stat-number {
-        display: block;
-        font-size: 35px;
-        font-weight: bold;
-        color: rgb(0, 0, 0);
-      } */
     </style>
   </head>
   <script>
@@ -260,41 +227,223 @@
 
     <!-- HomePage section 1 start  -->
     <section
-      class="bg-cwhite pt-4 md:pt-10 px-4 md:px-16 min-h-80 bg-no-repeat md:bg-contain bg-center bg-cover relative"
+      class="bg-cwhite pt-5 md:pt-12 px-4 md:px-16 min-h-80 bg-no-repeat md:bg-contain bg-center bg-cover relative"
       style="background-image: url('/assets/page-02.png')"
     >
       <div class="absolute inset-0 bg-white bg-opacity-90"></div>
       <div class="text-center relative z-10 mx-auto w-full max-w-screen-xl">
-        <div class="mx-auto w-full max-w-screen-xl md:px-36">
+        <div class="mx-auto w-full max-w-screen-xl md:px-28 xl:px-40">
           <h1
-            class="md:text-4xl text-3xl text-center font-semibold text-cblack"
+            class="md:text-5xl text-4xl text-center font-semibold text-cblack"
           >
             One of the best Linkbuilding platforms across the digital sphere,
           </h1>
-          <h4 class="mt-3 md:text-2xl text-center font-semibold text-cblack">
+          <h4 class="mt-3 md:text-xl text-center font-semibold text-cblack">
             Speedup your SEO results and be ahead of your challengers
           </h4>
         </div>
         <div
-          class="flex justify-center items-center rounded-xl mt-5 md:mt-8 px-2"
+          class="mx-auto justify-center items-center pt-5 rounded-xl mt-5 md:mt-8 px-2 max-w-screen-sm"
         >
-          <div class="bg-white rounded-3xl font-raleway flex w-96">
-            <input
-              type="text"
-              class="border border-gray-300 p-3 focus:border-pcolor focus:ring-0 w-full md:w-40 lg:w-full rounded-l-3xl"
-              id=""
-              placeholder="Your Website"
-            />
-            <button
-              class="p-3 text-white bg-pcolor text-sm md:text-lg rounded-r-3xl hover:bg-scolor transition duration-300"
-              type="submit"
-            >
-              Register
-            </button>
+          <div class="bg-white rounded-3xl font-raleway flex w-96 mx-auto">
+            <div class="mx-auto inline-flex" role="group">
+              <button
+                data-modal-target="publiser-modal"
+                data-modal-toggle="publiser-modal"
+                type="button"
+                class="inline-flex items-center px-8 py-4 text-md font-medium text-gray-900 bg-pcolor border border-pcolor hover:border-gray-900 rounded-s-full hover:bg-gray-900 hover:text-white transition-colors"
+              >
+                <i class="fa-solid fa-bullhorn mr-2"></i>
+                Publisher
+              </button>
+
+              <button
+                data-modal-target="advertiser-modal"
+                data-modal-toggle="advertiser-modal"
+                type="button"
+                class="inline-flex items-center px-8 py-4 text-md font-medium text-gray-900 bg-white border border-gray-200 hover:border-gray-900 shadow-lg shadow-pcolor/40 rounded-e-full hover:bg-gray-900 hover:text-white transition-colors"
+              >
+                <i class="fa-solid fa-rectangle-ad mr-2"></i>
+                Advertiser
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Publiser modal -->
+    <div
+      id="publiser-modal"
+      tabindex="-1"
+      aria-hidden="true"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+    >
+      <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+          <!-- Modal header -->
+          <div
+            class="flex items-center justify-between p-4 md:p-5 border-b rounded-t"
+          >
+            <h3 class="text-xl font-semibold text-gray-900">
+              Connect with Publiser Platform
+            </h3>
+            <button
+              type="button"
+              class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+              data-modal-hide="publiser-modal"
+            >
+              <svg
+                class="w-3 h-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="p-4 md:p-5">
+            <form class="space-y-4 mb-2" action="#">
+              <div>
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Your email</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 e"
+                  placeholder="name@company.com"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="text"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Your Website</label
+                >
+                <input
+                  type="text"
+                  name="text"
+                  id="text"
+                  placeholder="www.xyz.com"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="w-full text-gray-900 bg-pcolor hover:bg-pcolor/80 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- advertiser modal -->
+    <div
+      id="advertiser-modal"
+      tabindex="-1"
+      aria-hidden="true"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+    >
+      <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+          <!-- Modal header -->
+          <div
+            class="flex items-center justify-between p-4 md:p-5 border-b rounded-t"
+          >
+            <h3 class="text-xl font-semibold text-gray-900">
+              Connect with Advertiser Platform
+            </h3>
+            <button
+              type="button"
+              class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+              data-modal-hide="advertiser-modal"
+            >
+              <svg
+                class="w-3 h-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="p-4 md:p-5">
+            <form class="space-y-4 mb-2" action="#">
+              <div>
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Your email</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 e"
+                  placeholder="name@company.com"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="text2"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Your Website</label
+                >
+                <input
+                  type="text"
+                  name="text2"
+                  id="text2"
+                  placeholder="www.xyz.com"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="w-full text-gray-900 bg-pcolor hover:bg-pcolor/80 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ======= -->
     <section
       class="mx-auto w-full max-w-screen-xl px-4 md:px-16 relative hidden md:block"
@@ -361,66 +510,7 @@
         </div>
       </div>
     </section>
-    <!--  Section 2 Start-->
-    <section class="mb-20">
-      <div
-        class="mx-auto w-full max-w-screen-xl px-4 md:px-16 py-10 md:py-12 bg-pcolor border-2 border-pcolor pt-12 mt-24 py-12 px-8"
-      >
-        <div class="md:px-36">
-          <h1
-            class="md:text-4xl text-3xl text-center font-semibold text-cblack mb-6 md:mb-8"
-          >
-            Our Trusted Publication
-          </h1>
-        </div>
-        <div class="lg:px-40 md:px-28 px-0 mt-8">
-          <marquee behavior="alternate" direction="left" scrollamount="3">
-            <button
-              type="button"
-              onclick="window.location.href='#'"
-              class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-pcolor rounded-lg border border-black hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-0 focus:ring-gray-100"
-            >
-              Website Link
-            </button>
-            <button
-              type="button"
-              onclick="window.location.href='#'"
-              class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-pcolor rounded-lg border border-black hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-0 focus:ring-gray-100"
-            >
-              D.A.
-            </button>
-            <button
-              type="button"
-              onclick="window.location.href='#'"
-              class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-pcolor rounded-lg border border-black hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-0 focus:ring-gray-100"
-            >
-              P.A.
-            </button>
-            <button
-              type="button"
-              onclick="window.location.href='#'"
-              class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-pcolor rounded-lg border border-black hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-0 focus:ring-gray-100"
-            >
-              Language
-            </button>
-            <button
-              type="button"
-              onclick="window.location.href='#'"
-              class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-pcolor rounded-lg border border-black hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-0 focus:ring-gray-100"
-            >
-              Traffic
-            </button>
-            <button
-              type="button"
-              onclick="window.location.href='#'"
-              class="py-2.5 px-5 lg:me-8 lg:mb-2 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-pcolor rounded-lg border border-black hover:bg-gray-50 hover:text-black focus:z-10 focus:ring-0 focus:ring-gray-100"
-            >
-              Price
-            </button>
-          </marquee>
-        </div>
-      </div>
-    </section>
+
     <!-- ads section -->
     <section
       class="mx-auto lg:my-20 my-10 w-full max-w-screen-xl px-4 md:px-16 hidden"
@@ -467,7 +557,7 @@
 
     <!-- Services Section 2 Start-->
     <section
-      class="mx-auto w-full max-w-screen-xl px-4 md:px-16 py-10 md:py-12 bg-gray-50"
+      class="mx-auto w-full max-w-screen-xl px-4 mt-20 md:px-16 py-10 md:py-12 bg-gray-50"
     >
       <div class="md:px-36">
         <h1
@@ -785,6 +875,90 @@
     </section>
 
     <!-- Services Section 2 end-->
+    <!--  Section 2 Start-->
+    <section class="">
+      <div
+        class="mx-auto w-full max-w-screen-xl px-4 md:px-16 py-10 md:py-12 bg-gray-50 border-pcolor pt-12 mb-10 py-12 px-8"
+      >
+        <div class="md:px-36">
+          <h1
+            class="md:text-4xl text-3xl text-center font-semibold text-cblack mb-6 md:mb-8"
+          >
+            Our Trusted Publication
+          </h1>
+        </div>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left rtl:text-right text-white">
+            <thead class="text-xs text-gray-900 uppercase bg-pcolor">
+              <tr>
+                <th scope="col" class="px-6 py-3">Website Name</th>
+                <th scope="col" class="px-6 py-3">D.A.</th>
+                <th scope="col" class="px-6 py-3">P.A.</th>
+                <th scope="col" class="px-6 py-3">Language</th>
+                <th scope="col" class="px-6 py-3">Traffic</th>
+                <th scope="col" class="px-6 py-3">
+                  <span class="sr-only">Edit</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white border-b text-gray-900 hover:bg-gray-50">
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">Silver</td>
+                <td class="px-6 py-4">Laptop</td>
+                <td class="px-6 py-4">$2999</td>
+                <td class="px-6 py-4">1.2k</td>
+                <td class="px-6 py-4 text-right">
+                  <a href="#" class="font-medium text-blue-600 hover:underline"
+                    >Buy</a
+                  >
+                </td>
+              </tr>
+              <tr class="bg-white border-b text-gray-900 hover:bg-gray-50">
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  Microsoft Surface Pro
+                </th>
+                <td class="px-6 py-4">White</td>
+                <td class="px-6 py-4">Laptop PC</td>
+                <td class="px-6 py-4">$1999</td>
+                <td class="px-6 py-4">6.2k</td>
+                <td class="px-6 py-4 text-right">
+                  <a href="#" class="font-medium text-blue-600 hover:underline"
+                    >Buy</a
+                  >
+                </td>
+              </tr>
+              <tr class="bg-white text-gray-900 hover:bg-gray-50">
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  Magic Mouse 2
+                </th>
+                <td class="px-6 py-4">Black</td>
+                <td class="px-6 py-4">Accessories</td>
+                <td class="px-6 py-4">$99</td>
+                <td class="px-6 py-4">3.2k</td>
+                <td class="px-6 py-4 text-right">
+                  <a href="#" class="font-medium text-blue-600 hover:underline"
+                    >Buy</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
     <!-- Services Section last start-->
 
     <section class="bg-pcolor py-10 flex justify-center px-4 lg:px-16">
