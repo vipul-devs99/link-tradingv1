@@ -23,6 +23,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway&display=swap"
       rel="stylesheet"
     />
+    <style>
+       .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease-out;
+    }
+    </style>
     <!-- Tailwind cdn -->
     <script src="/assets/css/tailwind.css"></script>
     <!-- flowbite css cdn  -->
@@ -43,9 +50,7 @@
             raleway: ["Raleway", "sans-serif"],
             poppins: ["Poppins", "sans-serif"],
           },
-          backgroundImage: {
-            "hero-back-img": "url('./assets/page-02.png')",
-          },
+          backgroundImage: {},
         },
       },
     };
@@ -214,13 +219,12 @@
     <!-- HomePage section 1 start  -->
     <section
       class="bg-cwhite pt-4 md:pt-10 px-4 md:px-16 min-h-80 bg-no-repeat md:bg-contain bg-center bg-cover relative"
-      style="background-image: url('./assets/page-02.png')"
     >
       <div class="absolute inset-0 bg-white bg-opacity-90"></div>
       <div class="text-center relative z-10 mx-auto w-full max-w-screen-xl">
         <div class="mx-auto w-full max-w-screen-xl md:px-36">
           <h1
-            class="md:text-2xl text-xl text-center font-semibold text-cblack pt-2"
+            class="md:text-3xl text-2xl text-center font-bold text-cblack pt-2"
           >
             Guidance and Solutions from the Link Trading Exchange team Speed up
             your SEO results and be ahead of your challengers
@@ -254,99 +258,37 @@
     <!-- FAQ section start  -->
 
     <section
-      class="bg-cwhite -mt-16 mb-20 z-20 relative px-4 md:px-16 mx-auto w-full max-w-screen-xl"
+      class="bg-cwhite mt-0 mb-20 z-20 relative px-4 md:px-16 mx-auto lg:w-9/12 w-full max-w-screen-xl font-poppins"
     >
       <div
         id="accordion-flush"
         data-accordion="collapse"
-        data-active-classes="bg-white dark:bg-gray-900 text-black dark:text-white"
-        data-inactive-classes="text-gray-500 dark:text-gray-400"
+        data-active-classes="bg-white dark:bg-white text-gray-800 dark:text-gray-800"
+        data-inactive-classes="text-gray-700 dark:text-gray-700"
       >
-        <h2 id="accordion-flush-heading-1">
-          <button
-            type="button"
-            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
-            data-accordion-target="#accordion-flush-body-1"
-            aria-expanded="true"
-            aria-controls="accordion-flush-body-1"
-          >
-            <span>Q. What is Link Trading Exchange? </span>
-            <svg
-              data-accordion-icon
-              class="w-3 h-3 rotate-180 shrink-0"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5 5 1 1 5"
-              />
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-flush-body-1"
-          class="hidden"
-          aria-labelledby="accordion-flush-heading-1"
-        >
-          <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-            <p class="mb-2 text-gray-700 dark:text-gray-400">
-              Ans. A special platform for all SEO enthusiasts Link Trading
-              Exchange boosts SEO results significantly, as we ensure SEO
-              professionals always have time for creativity, strategy, and
-              experiments while we take care of routine processes. With us,
-              you’ll find unexploited opportunities to build a powerful backlink
-              profile.
-            </p>
-          </div>
-        </div>
-        <h2 id="accordion-flush-heading-2">
-          <button
-            type="button"
-            class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 gap-3"
-            data-accordion-target="#accordion-flush-body-2"
-            aria-expanded="false"
-            aria-controls="accordion-flush-body-2"
-          >
-            <span>Q. What sets us apart from the others? </span>
-            <svg
-              data-accordion-icon
-              class="w-3 h-3 rotate-180 shrink-0"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5 5 1 1 5"
-              />
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-flush-body-2"
-          class="hidden"
-          aria-labelledby="accordion-flush-heading-2"
-        >
-          <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-            <p class="mb-2 text-gray-700 dark:text-gray-400">
-              Ans. We take only a few clicks to apply a backlink.
-            </p>
-          </div>
+        <div id="faqContainer">
+          <!-- FAQ items will be displayed here dynamically -->
         </div>
       </div>
     </section>
 
     <!-- ======= FAQ section end -->
+    <!-- ======= Glossary section start -->
+    <section
+      class="bg-cwhite mt-10 mb-20 z-20 relative px-4 md:px-16 mx-auto lg:w-9/12 w-full max-w-screen-xl font-poppins"
+    >
+      <div
+        data-active-classes="bg-white dark:bg-white text-gray-800 dark:text-gray-800"
+      >
+        <div>
+          <h2 class="text-4xl">Glossary</h2>
+        </div>
+        <div id="glossaryContainer">
+          <!-- FAQ items will be displayed here dynamically -->
+        </div>
+      </div>
+    </section>
+    <!-- ======= Glossary section end -->
 
     <!-- Footer Section start  -->
     <footer class="bg-cblack inset-x-0 bottom-0 lg:px-16">
@@ -462,7 +404,253 @@
       </div>
     </footer>
     <!-- Footer Section end  -->
+    <script>
+      const faqData = [
+        {
+          que: "Which payment options are available?",
+          ans: "PayPal is a payment method that we accept and recommend. Wallets, Razorpay, Credit/Debit Cards, UPI, and Net Banking are some Indian payment options.",
+        },
+        {
+          que: "Who is the owner of the website that the marketplace lists? ",
+          ans: "After reaching out to hundreds of blog owners, the websites listed in the marketplace are selected. We do not claim any ownership of the websites; all credit belongs to the owner.",
+        },
+        {
+          que: "What are backlinks?",
+          ans: "Backlinks are like digital handshakes from other websites pointing to yours.  When another site links to you, it's like acknowledging the quality of your content. These &quot;handshakes&quot; signal trust and credibility to search engines, boosting your website's visibility and ranking potential.",
+        },
+        {
+          que: "Why are backlinks important for SEO? ",
+          ans: "Think of backlinks as votes of confidence for your website, guiding search engines to your valuable content. The more high-quality sites link back to you, the more trustworthy and relevant search engines see you, boosting your ranking.",
+        },
+        {
+          que: "What is LinkTradingExchange?  ",
+          ans: "LinkTradingExchange is a platform that offers Google-friendly pages for secure and ethical link building. Our massive marketplace connects SEO professionals and webmasters with over a million Google-friendly pages for powerful backlinks that supercharge your website results.",
+        },
+        {
+          que: "How many backlinks do I need to improve my website's ranking?",
+          ans: "Search engines consider various factors beyond just backlink quantity, and the ideal number can vary greatly depending on several factors. Ideally, a good website has 40 to 50 backlinks to its homepage and 30 to 100 to each subpage.",
+        },
+        {
+          que: "Are all backlinks created equal? ",
+          ans: "Not every backlink is made equal. High-quality backlinks are ascribed to rank higher in the SERPs. One high-quality backlink can outperform one hundred low-quality ones.",
+        },
+        {
+          que: "What is white-label link building? ",
+          ans: "An agency that creates links for the clients of another agency is engaging in white-label link building.",
+        },
 
+        {
+          que: "Is link building still considered to be relevant? ",
+          ans: "Building links is still a beneficial and successful SEO marketing strategy that helps companies expand.",
+        },
+      ];
+
+      function displayFAQ(faqItems) {
+    const faqContainer = document.getElementById("faqContainer");
+
+    // Loop through each FAQ item and display question and answer
+    faqItems.forEach((faqItem, index) => {
+      const faqItemDiv = document.createElement("div");
+      faqItemDiv.innerHTML = `
+        <div id="accordion-flush-heading-${index}" class="faq-item">
+          <div
+            type="button"
+            class="flex items-center cursor-pointer justify-between w-full py-5 font-medium rtl:text-right text-gray-800 border-b border-gray-200  gap-3"
+            data-accordion-target="#accordion-flush-body-${index}"
+            aria-expanded="false"
+            aria-controls="accordion-flush-body-${index}"
+            onclick="toggleAccordion(${index})"
+          >
+            <p >Q${index + 1}. ${faqItem.que} </p>
+            <svg
+              data-accordion-icon
+              class="w-3 h-3 rotate-180 shrink-0 block"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5 5 1 1 5"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          id="accordion-flush-body-${index}"
+          class="faq-answer hidden"
+          aria-labelledby="accordion-flush-heading-${index}"
+        >
+          <div class="py-5 border-b border-gray-200 ">
+            <p class="mb-2 text-gray-700 ml-2 lg:ml-5 mr-4 lg:mr-10">
+              <span class="font-medium">Ans.</span>  ${faqItem.ans}
+            </p> 
+          </div>
+        </div>`;
+      faqContainer.appendChild(faqItemDiv);
+    });
+  }
+
+  function toggleAccordion(index) {
+    const answerSection = document.getElementById(`accordion-flush-body-${index}`);
+    
+    // Close all other accordions
+    document.querySelectorAll('.faq-answer').forEach((el, i) => {
+      if (i !== index) {
+        el.classList.add("hidden");
+        el.style.maxHeight = null;
+      }
+    });
+
+    // Toggle the selected accordion
+    answerSection.classList.toggle("hidden");
+    answerSection.style.maxHeight = answerSection.classList.contains("hidden") ? null : answerSection.scrollHeight + "px";
+  }
+
+  // Call the function to display FAQ items
+  displayFAQ(faqData);
+    </script>
+    <!-- Glossary Script -->
+    <script>
+      const glossaryData = [
+        {
+          title: "Backlink",
+          description:
+            "A hyperlink directing visitors to your website from another website. Sometimes known as an &quot;incoming link&quot; or an &quot;inbound link.",
+        },
+        {
+          title: "Link Building",
+          description:
+            "Getting backlinks from other relevant websites to your website.",
+        },
+        {
+          title: "Anchor Text",
+          description:
+            "The clickable text of a hyperlink. It can be optimised with relevant keywords.",
+        },
+        {
+          title: "Domain Authority (DA)",
+          description:
+            "A rating that indicates a website's likelihood of appearing highly in search engine results pages (SERPs).",
+        },
+        {
+          title: "Search Engine Results Page (SERP)",
+          description:
+            "The collection of outcomes a search engine shows after a user queries.",
+        },
+        {
+          title: "Dofollow Link",
+          description:
+            "A backlink that gives the linked website link equity or authority.",
+        },
+        {
+          title: "Nofollow Link",
+          description:
+            "Website traffic and brand awareness can still be enhanced by a backlink that does not pass link equity.",
+        },
+        {
+          title: "Guest Posting",
+          description:
+            "Creating and posting a piece of writing with a backlink to your website on another website.",
+        },
+        {
+          title: "Broken Link Building",
+          description:
+            "Identifying broken links on pertinent websites and offering a substitute piece of writing.",
+        },
+        {
+          title: "Skyscraper Technique",
+          description:
+            "Producing superior content to what has already been written on the same subject to promote backlinks.",
+        },
+        {
+          title: "Infographics",
+          description:
+            "Making for visually appealing and educational infographics that can be embedded on other websites in exchange for a backlink.",
+        },
+        {
+          title: "HARO (Help A Reporter Out)",
+          description:
+            "A backlink from a domain authority, relevant, and reliable website.",
+        },
+        {
+          title: "High-Quality Backlink",
+          description:
+            "A website that links journalists with sources for their stories and might provide a backlink opportunity.",
+        },
+        {
+          title: "Low-Quality Backlink",
+          description:
+            "A backlink from a low-domain-authority spammy, irrelevant webpage.",
+        },
+        {
+          title: "Link Disavowal",
+          description:
+            "A procedure whereby you provide Google with a list of unwanted backlinks and ask that they be disregarded for ranking purposes.",
+        },
+        {
+          title: "Internal Linking",
+          description: "Creating links to different website pages.",
+        },
+        {
+          title: "Link Velocity",
+          description:
+            "The rate at which backlinks to your website are added or removed over time.",
+        },
+        {
+          title: "Organic Traffic",
+          description:
+            "People who find your website via search engines rather than paid advertisements.",
+        },
+        {
+          title: "White Hat SEO",
+          description:
+            "Lawful and moral SEO techniques that adhere to search engine requirements.",
+        },
+        {
+          title: "Black Hat SEO",
+          description:
+            "Search engines may penalise websites that use deceptive and manipulative SEO techniques.",
+        },
+      ];
+
+      // Function to display FAQ items on the webpage
+      function displayFAQ(glossaryItems) {
+        const glossaryContainer = document.getElementById("glossaryContainer");
+
+        // Loop through each FAQ item and display question and answer
+        glossaryItems.forEach((glossaryItem, index) => {
+          const glossaryItemDiv = document.createElement("div");
+          glossaryItemDiv.innerHTML = `
+          <div
+      class="w-full py-5 font-medium rtl:text-right text-gray-800"
+    >
+      <ul class="space-y-4 text-gray-800 list-none list-inside">
+        <li>
+          <span class="w-3 h-3 rounded-sm inline-block mr-2 bg-pcolor li">
+          </span>
+          ${glossaryItem.title}:
+          <ol class="ps-5 mt-2 space-y-1 list-none list-inside">
+            <li>
+              <span class="text-sm font-normal"
+                >${glossaryItem.description}</span
+              >
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </div>`;
+          glossaryContainer.appendChild(glossaryItemDiv);
+        });
+      }
+
+      // Call the function to display FAQ items
+      displayFAQ(glossaryData);
+    </script>
     <!-- flowbite js cdn  -->
     <script src="/assets/js/flowbite.js"></script>
   </body>

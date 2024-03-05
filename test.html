@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/style.css">
-</head>
-<body>
-  <h1 id="header"></h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ Example</title>
+    <style>
+      /* CSS styles can be applied here */
+    </style>
+  </head>
+  <body>
+    <!-- HTML content goes here -->
 
-  <script>
-    var output = "<a href=\"https://www.jio.com/business/\">https://www.jio.com/business/</a>";
-    document.querySelector('#header').innerText = output;
-  </script>
-</body>
+    <div id="faqContainer">
+      <!-- FAQ items will be displayed here dynamically -->
+    </div>
+    <div
+      class="flex items-center justify-between w-full py-5 font-medium rtl:text-right text-gray-800"
+    >
+      <ul class="space-y-4 text-gray-800 list-none list-inside">
+        <li>
+          <span class="w-3 h-3 rounded-sm inline-block mr-2 bg-pcolor li">
+          </span>
+          ${glossaryItem.title}:
+          <ol class="ps-5 mt-2 space-y-1 list-none list-inside">
+            <li>
+              <span class="text-sm font-normal"
+                >${glossaryItem.description}</span
+              >
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // FAQ data defined in the same HTML file
+      const faqData = [
+        {
+          question: "What is FAQ?",
+          answer:
+            "FAQ stands for Frequently Asked Questions. It is a list of common questions and answers on a particular topic.",
+        },
+        {
+          question: "How can I use FAQData in my HTML?",
+          answer:
+            "You can define FAQData in your JavaScript and dynamically create HTML elements to display the FAQ on your webpage.",
+        },
+        // Add more FAQ items as needed
+      ];
+
+      // Function to display FAQ items on the webpage
+      function displayFAQ(faqItems) {
+        const faqContainer = document.getElementById("faqContainer");
+
+        // Loop through each FAQ item and display question and answer
+        faqItems.forEach((faqItem) => {
+          const faqItemDiv = document.createElement("div");
+          faqItemDiv.innerHTML = `<strong>${faqItem.question}</strong><br>${faqItem.answer}<br><br>`;
+          faqContainer.appendChild(faqItemDiv);
+        });
+      }
+
+      // Call the function to display FAQ items
+      displayFAQ(faqData);
+    </script>
+  </body>
 </html>
